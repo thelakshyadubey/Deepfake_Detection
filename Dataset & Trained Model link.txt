@@ -1,0 +1,2 @@
+Dataset link: https://www.kaggle.com/datasets/xhlulu/140k-real-and-fake-faces
+Model link: https://drive.google.com/drive/folders/1Isq6p6mLlTNDPIYyUXSIPAIBTrY0os6t?usp=sharing
