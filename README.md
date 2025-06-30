@@ -1,133 +1,144 @@
-🔍 Deepfake Detection using Xception and TensorFlow
-A GPU-accelerated deepfake detection project that uses Transfer Learning with the Xception model, data augmentation, and mixed precision training to classify real vs. fake human faces.
+# Deepfake Detection using Xception and TensorFlow
 
-🚀 Features
-Binary classification of real vs. deepfake images.
+This project presents a GPU-accelerated deepfake detection system that utilizes transfer learning with the Xception model. It incorporates data augmentation, mixed precision training, and GPU memory optimization to classify real versus fake human faces effectively.
 
-Transfer learning with Xception pretrained on ImageNet.
+## Features
 
-Enhanced performance with mixed precision and GPU memory optimization.
+* Binary classification of real and deepfake images
+* Transfer learning using Xception pretrained on ImageNet
+* Mixed precision training for improved performance on modern GPUs
+* Early stopping to prevent overfitting
+* Optimized for NVIDIA GPUs with memory growth and float16 support
 
-Early stopping to prevent overfitting.
+## Model Architecture
 
-🧠 Model Architecture
-Base Model: Xception (pretrained, fine-tuned)
+**Base Model:**
 
-Top Layers:
+* Xception (pretrained, fine-tuned)
 
-Global Average Pooling
+**Top Layers:**
 
-Dense (512, ReLU)
+* Global Average Pooling
+* Dense layer with 512 units and ReLU activation
+* Dropout layer (rate = 0.5)
+* Output layer: Dense with 1 unit and Sigmoid activation (binary classification)
 
-Dropout (0.5)
+## Dataset
 
-Output Layer: Dense (1, Sigmoid for binary classification)
+**Source:**
+140K Real and Fake Faces dataset from Kaggle.
 
-📁 Dataset
-Dataset used for training:
-👉 140K Real and Fake Faces (Kaggle)
+**Folder Structure:**
 
-Folder structure:
-
-go
-Copy
-Edit
+```
 datasets/
 └── train/
     ├── real/
     └── fake/
-⚠️ Note: The dataset folder is excluded using .gitignore to prevent pushing large files to GitHub.
+```
 
-⚙️ Setup & Installation
-1. Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/thelakshyadubey/Deepfake-Detection.git
-cd Deepfake-Detection
-2. (Optional) Create a Virtual Environment
-bash
-Copy
-Edit
+**Note:** The `datasets/` directory is excluded using `.gitignore` to avoid uploading large files to GitHub.
+
+## Setup and Installation
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/thelakshyadubey/Deepfake_Detection.git
+cd Deepfake_Detection
+```
+
+### Step 2 (Optional): Create and Activate a Virtual Environment
+
+```bash
 python -m venv venv
-venv\Scripts\activate  # On Windows
-3. Install Required Dependencies
-bash
-Copy
-Edit
+venv\Scripts\activate  # For Windows
+```
+
+### Step 3: Install Dependencies
+
+```bash
 pip install -r requirements.txt
-If requirements.txt is not available, install manually:
+```
 
-bash
-Copy
-Edit
+If `requirements.txt` is not available, install dependencies manually:
+
+```bash
 pip install tensorflow numpy pillow
-💡 Use tensorflow-gpu if using TensorFlow ≤ 2.10 on older machines.
+```
 
-🏋️‍♂️ Train the Model
-To train the model using GPU:
+*Note: Use `tensorflow-gpu` if working with TensorFlow ≤ 2.10.*
 
-bash
-Copy
-Edit
+## Training
+
+To train the model using GPU acceleration:
+
+```bash
 python train_model.py
-Mixed precision & memory growth are enabled for GPU.
+```
 
-Model is saved to:
+* Mixed precision training and memory growth are automatically enabled.
+* The trained model will be saved in:
 
-bash
-Copy
-Edit
+```
 models/new_deepfake_detector.h5
-🧪 Test the Model
-To test with your own image:
+```
 
-Open test_model.py
+## Testing
 
-Modify the image path (e.g., "C:/Users/YourName/Desktop/image.jpg")
+To test the model on a custom image:
 
-Run the script:
+1. Open `test_model.py`
+2. Modify the image path:
 
-bash
-Copy
-Edit
+```python
+img_path = "C:/Users/YourName/Desktop/image.jpg"
+```
+
+3. Run the script:
+
+```bash
 python test_model.py
-Output Example:
-less
-Copy
-Edit
-✅ Real Face Detected! (Confidence: 93.12%)
+```
+
+**Example Output:**
+
+```
+Real Face Detected (Confidence: 93.12%)
+```
+
 or
 
-less
-Copy
-Edit
-🛑 Fake Face Detected! (Confidence: 87.45%)
-📦 Folder Structure
-bash
-Copy
-Edit
+```
+Fake Face Detected (Confidence: 87.45%)
+```
+
+## Project Structure
+
+```
 Deepfake-Detection/
-├── datasets/                # Training dataset (ignored in git)
-├── models/                  # Trained model saved here
+├── datasets/                # Training dataset (excluded via .gitignore)
+├── models/                  # Directory for saving trained models
 ├── train_model.py           # Training script
 ├── test_model.py            # Inference script
 ├── .gitignore
 └── README.md
-🧠 Hardware Utilization
-GPU: NVIDIA (Tensor Cores)
+```
 
-Optimized with:
+## Hardware Utilization
 
-tf.device('/GPU:0')
+* Developed and optimized for NVIDIA GPUs
+* Utilizes:
 
-set_memory_growth(True)
+  * `tf.device('/GPU:0')`
+  * `set_memory_growth(True)`
+  * Mixed precision policy for float16 acceleration
 
-mixed_precision (for faster training)
+## License
 
-📜 License
 This project is licensed under the MIT License.
 
-🙋‍♂️ Author
-Lakshya Dubey
-🔗 GitHub
+## Author
+
+**Lakshya Dubey**
+GitHub: [https://github.com/thelakshyadubey](https://github.com/thelakshyadubey)
