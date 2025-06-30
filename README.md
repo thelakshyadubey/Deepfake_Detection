@@ -133,10 +133,7 @@ Deepfake-Detection/
   * `tf.device('/GPU:0')`
   * `set_memory_growth(True)`
   * Mixed precision policy for float16 acceleration
-
-## License
-
-This project is licensed under the MIT License.
+    
 
 ## Author
 
