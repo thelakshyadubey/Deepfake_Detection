@@ -133,7 +133,9 @@ Deepfake-Detection/
   * `tf.device('/GPU:0')`
   * `set_memory_growth(True)`
   * Mixed precision policy for float16 acceleration
-    
+ 
+##Preview
+![WhatsApp Image 2025-07-22 at 12 01 12_49c74302](https://github.com/user-attachments/assets/ddfe168a-5772-4d15-96cf-2b86ce846031)
 
 ## Author
 
